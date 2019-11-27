@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 29
@@ -28,18 +27,3 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
-publish {
-    userOrg = 'qydq'// 注册bintray时的username
-
-    groupId = 'com.test1'// 项目包名
-
-    artifactId = 'test1'// 项目名
-
-    publishVersion = '1.0.2'// 发布版本号
-
-    desc = 'sunst maven center test1'// 项目描述，可选项
-
-    website = '[https://github.com/qydq/test1](https://github.com/qydq/test1)'// 项目站点，可选项
-
-    }
-

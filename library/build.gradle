@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(name: 'alidd-1.0', ext: 'aar')
+}
+
+//implementation 'com.test1:test1:1.0'
+
+publish {
+    userOrg = 'qydq'// 注册bintray时的username
+    groupId = 'com.test1'// 项目包名
+    artifactId = 'test1'// 项目名
+//    uploadName = 'test1'
+    publishVersion = '5.0'// 发布版本号
+    desc = 'sunst maven center test1'// 项目描述，可选项
+    website = '[https://github.com/qydq/test1](https://github.com/qydq/test1)'// 项目站点，可选项
+    licences = ['Apache-2.0']
+}
